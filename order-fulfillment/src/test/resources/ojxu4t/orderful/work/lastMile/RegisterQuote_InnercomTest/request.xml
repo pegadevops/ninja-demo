@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <ns1:AddQuote xmlns:ns1="http://pegadevops.com">
+            <ns1:projectId>My-Proj-Id</ns1:projectId>
+            <ns1:lineDetails>
+                <ns1:lineTypeId>line-type-id</ns1:lineTypeId>
+                <ns1:lineTypeName>line type description</ns1:lineTypeName>
+                <ns1:minimalLeaseTime>36</ns1:minimalLeaseTime>
+            </ns1:lineDetails>
+            <ns1:location>
+                <ns1:id>location-id</ns1:id>
+                <ns1:customerLocation>MYZIP, My Street 12-1-5, My City, My Country</ns1:customerLocation>
+                <ns1:vendorLocation>VENDOR_ZIP, Vendor Street 12-1-5, Vendor City, Vendor Country</ns1:vendorLocation>
+                <ns1:provisionDate>2018-10-19</ns1:provisionDate>
+            </ns1:location>
+            <ns1:internalComment>Some Internal Comment</ns1:internalComment>
+            <ns1:supplierComment>Some Supplier Comment</ns1:supplierComment>
+            <ns1:technicalComment>Some Technical Comment</ns1:technicalComment>
+        </ns1:AddQuote>
+    </soapenv:Body>
+</soapenv:Envelope> 

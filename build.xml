@@ -1,0 +1,75 @@
+<project name="Ninja Demo">
+    <target name="properties">
+        <echoproperties/>
+    </target>
+
+    <target name="bootstrap">
+        <echo message="Starting from ${basedir}"/>
+
+        <condition property="maven.plugin.classpath.exists">
+            <available classpath="maven.plugin.classpath" classname="ru.lanit.bpm.goblin.ant.tasks.BuildChunksTask"/>
+        </condition>
+    </target>
+
+    <target name="init.classpath.manually" unless="maven.plugin.classpath.exists">
+        <echo message="Initializing classpath manually"/>
+        <property environment="env"/>
+        <property name="goblin.version" value="3.313.RELEASE"/>
+        <property name="ninja.version" value="1.7.2276.RELEASE"/>
+        <property name="M2_REPO" value="${env.M2_REPO}"/>
+        <path id="maven.plugin.classpath">
+            <pathelement location="${M2_REPO}/ru/lanit/bpm/goblin/goblin-ant-common/${goblin.version}/goblin-ant-common-${goblin.version}.jar"/>
+            <pathelement location="${M2_REPO}/ru/lanit/bpm/goblin/goblin-ant-base-tasks/${goblin.version}/goblin-ant-base-tasks-${goblin.version}.jar"/>
+            <pathelement
+                    location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-delivery-goblin-tasks/${ninja.version}/ninja-delivery-goblin-tasks-${ninja.version}.jar"/>
+            <pathelement location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-delivery-common/${ninja.version}/ninja-delivery-common-${ninja.version}.jar"/>
+            <pathelement location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-pega-client/${ninja.version}/ninja-pega-client-${ninja.version}.jar"/>
+            <pathelement location="${M2_REPO}/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
+            <pathelement location="${M2_REPO}/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
+        </path>
+        <property name="dir.build" value="${basedir}/target/build"/>
+    </target>
+
+    <target name="init" depends="init.classpath.manually">
+        <typedef name="buildchunks" classname="ru.lanit.bpm.goblin.ant.tasks.BuildChunksTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="pegaarchive" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.PegaArchiveTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="pegaactivity" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.PegaActivityTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="ruleset" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.RuleSetTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="instance" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.InstanceTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="sqlscripts" classname="ru.lanit.bpm.goblin.ant.tasks.SqlScriptsTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="embedded" classname="ru.lanit.bpm.goblin.ant.tasks.EmbeddedTask" classpathref="maven.plugin.classpath"/>
+    </target>
+
+    <target name="build" depends="bootstrap,package"/>
+
+    <target name="package" depends="init">
+        <property name="dir.src.resources" value="${basedir}/src/main/resources"/>
+        <property name="dir.staging" value="${dir.build}/staging"/>
+        <property name="dir.archive-temp" value="${dir.staging}/archive-temp"/>
+
+        <mkdir dir="${dir.staging}"/>
+        <copy todir="${dir.staging}" flatten="true">
+            <path refid="maven.plugin.classpath"/>
+        </copy>
+
+        <!-- Remove erroneous ext-* from ninja-pega-runtime -->
+        <mkdir dir="${dir.archive-temp}"/>
+        <unzip src="${dir.staging}/ninja-pega-runtime-${ninja.version}.zip" dest="${dir.archive-temp}"/>
+        <delete>
+            <fileset dir="${dir.archive-temp}/lib" includes="ninja-delivery-goblin-ext-*.jar"/>
+        </delete>
+        <zip basedir="${dir.archive-temp}" destfile="${dir.staging}/ninja-pega-runtime-${ninja.version}.zip"/>
+        <delete dir="${dir.archive-temp}"/>
+
+        <buildchunks builddir="${dir.build}">
+            <embedded chunkid="order-fulfillment" src="${dir.staging}/order-fulfillment-${project.version}.zip"/>
+            <embedded chunkid="lending" src="${dir.staging}/lending-${project.version}.zip"/>
+        </buildchunks>
+
+        <delete dir="${dir.staging}"/>
+
+        <copy todir="${dir.build}">
+            <fileset dir="${dir.src.resources}"/>
+        </copy>
+    </target>
+</project>

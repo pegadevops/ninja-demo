@@ -1,0 +1,20 @@
+<pagedata>
+    <pxObjClass>OJXU4T-OrderFul-Work-LastMile</pxObjClass>
+    <TechnicalComment>Some Technical Comment</TechnicalComment>
+    <InternalComment>Some Internal Comment</InternalComment>
+    <ProjectId>My-Proj-Id</ProjectId>
+    <SupplierComment>Some Supplier Comment</SupplierComment>
+    <LineDetails>
+        <pxObjClass>OJXU4T-OrderFul-Data-LineDetails</pxObjClass>
+        <pyID>line-type-id</pyID>
+        <pyLabel>line type description</pyLabel>
+        <LeaseTime>36</LeaseTime>
+    </LineDetails>
+    <Location>
+        <pxObjClass>OJXU4T-OrderFul-Data-Location</pxObjClass>
+        <pyID>location-id</pyID>
+        <ProvisionDate>20181019</ProvisionDate>
+        <VendorLocation>VENDOR_ZIP, Vendor Street 12-1-5, Vendor City, Vendor Country</VendorLocation>
+        <CustomerLocation>MYZIP, My Street 12-1-5, My City, My Country</CustomerLocation>
+    </Location>
+</pagedata>

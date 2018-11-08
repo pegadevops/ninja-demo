@@ -1,0 +1,23 @@
+<pagedata>
+    <pxObjClass>OJXU4T-Int-LastMile-QuoteService</pxObjClass>
+    <AddQuoteParameters>
+        <internalComment>Some Internal Comment</internalComment>
+        <pxObjClass>OJXU4T-Int-LastMile-AddQuote</pxObjClass>
+        <supplierComment>Some Supplier Comment</supplierComment>
+        <projectId>My-Proj-Id</projectId>
+        <technicalComment>Some Technical Comment</technicalComment>
+        <lineDetails>
+            <pxObjClass>OJXU4T-Int-LastMile-LineDetails</pxObjClass>
+            <lineTypeId>line-type-id</lineTypeId>
+            <minimalLeaseTime>36</minimalLeaseTime>
+            <lineTypeName>line type description</lineTypeName>
+        </lineDetails>
+        <location>
+            <pxObjClass>OJXU4T-Int-LastMile-Location</pxObjClass>
+            <provisionDate>20181019</provisionDate>
+            <customerLocation>MYZIP, My Street 12-1-5, My City, My Country</customerLocation>
+            <id>location-id</id>
+            <vendorLocation>VENDOR_ZIP, Vendor Street 12-1-5, Vendor City, Vendor Country</vendorLocation>
+        </location>
+    </AddQuoteParameters>
+</pagedata>

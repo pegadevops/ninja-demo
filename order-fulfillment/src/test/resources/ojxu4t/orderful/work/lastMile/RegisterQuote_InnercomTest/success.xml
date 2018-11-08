@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:peg="http://pegadevops.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <peg:AddQuoteResponse>
+            <peg:quoteId>%1$s</peg:quoteId>
+        </peg:AddQuoteResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
