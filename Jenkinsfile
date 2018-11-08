@@ -1,7 +1,4 @@
 pipeline {
-    options {
-        disableConcurrentBuilds()
-    }
     agent any
     stages {
         stage('Build') {
@@ -13,8 +10,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
-                    sh 'rm target/surefire-reports/*.xml'
+                    junit '**/target/surefire-reports/*.xml'
                 }
             }
         }
