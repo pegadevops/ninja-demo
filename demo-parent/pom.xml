@@ -738,6 +738,13 @@
                     <plugin>
                         <groupId>ru.lanit.bpm.ninja</groupId>
                         <artifactId>ninja-delivery-maven-plugin</artifactId>
+                        <!--suppress MavenModelInspection -->
+                        <configuration>
+                            <pegaUrl>${cd.env.pega.url}</pegaUrl>
+                            <pegaLogin>${cd.env.pega.ninja-developer.id}</pegaLogin>
+                            <pegaPassword>${cd.env.pega.ninja-developer.password}</pegaPassword>
+                            <pegaCookieMode>${cd.env.pega.cookie.mode}</pegaCookieMode>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>update-codebase</id>
