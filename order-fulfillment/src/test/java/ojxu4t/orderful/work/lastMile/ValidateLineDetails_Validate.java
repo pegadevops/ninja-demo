@@ -23,8 +23,8 @@ import ru.lanit.bpm.ninja.unit.client.cp.PreparePage;
 
 import static ojxu4t.orderful.data.lineDetails.LineDetails.C_OJXU4T_ORDERFUL_DATA_LINE_DETAILS;
 import static ojxu4t.orderful.work.lastMile.LastMile.C_OJXU4T_ORDERFUL_WORK_LAST_MILE;
-import static ru.lanit.bpm.ninja.pega.constants.PegaConstants.P_PY_ID;
-import static ru.lanit.bpm.ninja.pega.constants.PegaConstants.P_PY_LABEL;
+import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_ID;
+import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_LABEL;
 
 /**
  * todo Document type ValidateLineDetails_Validate

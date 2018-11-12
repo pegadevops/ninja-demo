@@ -21,9 +21,9 @@
             <pathelement location="${M2_REPO}/ru/lanit/bpm/goblin/goblin-ant-common/${goblin.version}/goblin-ant-common-${goblin.version}.jar"/>
             <pathelement location="${M2_REPO}/ru/lanit/bpm/goblin/goblin-ant-base-tasks/${goblin.version}/goblin-ant-base-tasks-${goblin.version}.jar"/>
             <pathelement
-                    location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-delivery-goblin-tasks/${ninja.version}/ninja-delivery-goblin-tasks-${ninja.version}.jar"/>
+                    location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-ra-goblin-tasks/${ninja.version}/ninja-ra-goblin-tasks-${ninja.version}.jar"/>
             <pathelement location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-delivery-common/${ninja.version}/ninja-delivery-common-${ninja.version}.jar"/>
-            <pathelement location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-pega-client/${ninja.version}/ninja-pega-client-${ninja.version}.jar"/>
+            <pathelement location="${M2_REPO}/ru/lanit/bpm/ninja/ninja-client-pegaclient/${ninja.version}/ninja-client-pegaclient-${ninja.version}.jar"/>
             <pathelement location="${M2_REPO}/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
             <pathelement location="${M2_REPO}/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
         </path>
@@ -32,10 +32,10 @@
 
     <target name="init" depends="init.classpath.manually">
         <typedef name="buildchunks" classname="ru.lanit.bpm.goblin.ant.tasks.BuildChunksTask" classpathref="maven.plugin.classpath"/>
-        <typedef name="pegaarchive" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.PegaArchiveTask" classpathref="maven.plugin.classpath"/>
-        <typedef name="pegaactivity" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.PegaActivityTask" classpathref="maven.plugin.classpath"/>
-        <typedef name="ruleset" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.RuleSetTask" classpathref="maven.plugin.classpath"/>
-        <typedef name="instance" classname="ru.lanit.bpm.ninja.delivery.goblin.tasks.InstanceTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="pegaarchive" classname="ru.lanit.bpm.ninja.ra.goblin.tasks.PegaArchiveTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="pegaactivity" classname="ru.lanit.bpm.ninja.ra.goblin.tasks.PegaActivityTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="ruleset" classname="ru.lanit.bpm.ninja.ra.goblin.tasks.RuleSetTask" classpathref="maven.plugin.classpath"/>
+        <typedef name="instance" classname="ru.lanit.bpm.ninja.ra.goblin.tasks.InstanceTask" classpathref="maven.plugin.classpath"/>
         <typedef name="sqlscripts" classname="ru.lanit.bpm.goblin.ant.tasks.SqlScriptsTask" classpathref="maven.plugin.classpath"/>
         <typedef name="embedded" classname="ru.lanit.bpm.goblin.ant.tasks.EmbeddedTask" classpathref="maven.plugin.classpath"/>
     </target>
@@ -57,7 +57,7 @@
         <mkdir dir="${dir.archive-temp}"/>
         <unzip src="${dir.staging}/ninja-pega-runtime-${ninja.version}.zip" dest="${dir.archive-temp}"/>
         <delete>
-            <fileset dir="${dir.archive-temp}/lib" includes="ninja-delivery-goblin-ext-*.jar"/>
+            <fileset dir="${dir.archive-temp}/lib" includes="ninja-ra-goblin-ext-*.jar"/>
         </delete>
         <zip basedir="${dir.archive-temp}" destfile="${dir.staging}/ninja-pega-runtime-${ninja.version}.zip"/>
         <delete dir="${dir.archive-temp}"/>

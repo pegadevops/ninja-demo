@@ -25,8 +25,8 @@ import static ojxu4t.orderful.data.bandwidth.Bandwidth.C_OJXU4T_ORDERFUL_DATA_BA
 import static ojxu4t.orderful.data.location.Location.C_OJXU4T_ORDERFUL_DATA_LOCATION;
 import static ojxu4t.orderful.data.project.Project.C_OJXU4_T_ORDER_FUL_DATA_PROJECT;
 import static ojxu4t.orderful.work.orderFulfillment.OrderFulfillment.*;
-import static ru.lanit.bpm.ninja.pega.constants.PegaConstants.P_PY_ID;
-import static ru.lanit.bpm.ninja.pega.constants.PegaConstants.P_PY_LABEL;
+import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_ID;
+import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_LABEL;
 
 /**
  * todo Document type ValidateOrderDetails_Validate

@@ -32,8 +32,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.StringReader;
 
-import static ru.lanit.bpm.ninja.pega.constants.PegaConstants.P_PY_ID;
-import static ru.lanit.bpm.ninja.pega.constants.PegaConstants.P_PY_LABEL;
+import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_ID;
+import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_LABEL;
 
 /**
  * todo Document type OrderFulfillmentTestSupport

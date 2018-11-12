@@ -11,8 +11,8 @@
     <name>Demo - Parent</name>
 
     <properties>
-        <ninja.version>1.7.2276.RELEASE</ninja.version>
-        <goblin.version>3.313.RELEASE</goblin.version>
+        <ninja.version>2.1.2691.RELEASE</ninja.version>
+        <goblin.version>4.354.RELEASE</goblin.version>
 
         <cd.build.pega.include.unlocked>true</cd.build.pega.include.unlocked>
 
@@ -254,14 +254,13 @@
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-delivery-goblin-tasks</artifactId>
+                <artifactId>ninja-ra-goblin-tasks</artifactId>
                 <version>${ninja.version}</version>
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.goblin</groupId>
                 <artifactId>goblin-deploy-core</artifactId>
                 <version>${goblin.version}</version>
-                <classifier>public</classifier>
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.goblin</groupId>
@@ -270,34 +269,29 @@
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-delivery-goblin-ext-pega-archive</artifactId>
+                <artifactId>ninja-ra-goblin-ext-pega-archive</artifactId>
                 <version>${ninja.version}</version>
-                <classifier>public</classifier>
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-delivery-goblin-ext-pega-activity</artifactId>
+                <artifactId>ninja-ra-goblin-ext-pega-activity</artifactId>
                 <version>${ninja.version}</version>
-                <classifier>public</classifier>
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.goblin</groupId>
                 <artifactId>goblin-deploy-ext-db-sql</artifactId>
                 <version>${goblin.version}</version>
-                <classifier>public</classifier>
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.goblin</groupId>
                 <artifactId>goblin-deploy-ext-jboss</artifactId>
                 <version>${goblin.version}</version>
-                <classifier>public</classifier>
             </dependency>
             <dependency>
                 <groupId>ru.lanit.bpm.goblin</groupId>
                 <artifactId>goblin-deploy-ext-embedded</artifactId>
                 <version>${goblin.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>io.cucmber</groupId>
                 <artifactId>cucumber-java</artifactId>
@@ -330,25 +324,22 @@
          <dependency>
              <groupId>ru.lanit.bpm.goblin</groupId>
              <artifactId>goblin-deploy-core</artifactId>
-             <classifier>public</classifier>
              <scope>runtime</scope>
          </dependency>
          <dependency>
              <groupId>ru.lanit.bpm.ninja</groupId>
-             <artifactId>ninja-delivery-goblin-ext-pega-archive</artifactId>
-             <classifier>public</classifier>
+             <artifactId>ninja-ra-goblin-ext-pega-archive</artifactId>
              <scope>runtime</scope>
          </dependency>
          <dependency>
              <groupId>ru.lanit.bpm.ninja</groupId>
-             <artifactId>ninja-delivery-goblin-ext-pega-activity</artifactId>
-             <classifier>public</classifier>
+             <artifactId>ninja-ra-goblin-ext-pega-activity</artifactId>
+
              <scope>runtime</scope>
          </dependency>
          <dependency>
              <groupId>ru.lanit.bpm.goblin</groupId>
              <artifactId>goblin-deploy-ext-db-sql</artifactId>
-             <classifier>public</classifier>
              <scope>runtime</scope>
          </dependency>
          <dependency>
@@ -650,7 +641,7 @@
                     </dependency>
                     <dependency>
                         <groupId>ru.lanit.bpm.ninja</groupId>
-                        <artifactId>ninja-delivery-goblin-tasks</artifactId>
+                        <artifactId>ninja-ra-goblin-tasks</artifactId>
                         <version>${ninja.version}</version>
                     </dependency>
                     <dependency>
