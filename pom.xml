@@ -16,6 +16,7 @@
 
     <properties>
         <maven-assembly-plugin.skip-assembly>false</maven-assembly-plugin.skip-assembly>
+        <sonar.skip>false</sonar.skip>
     </properties>
 
     <modules>
