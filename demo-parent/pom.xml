@@ -752,7 +752,6 @@
                                     <goal>update-codebase-filter</goal>
                                 </goals>
                                 <configuration>
-                                    <codebaseId>${ninja.codebase.id}</codebaseId>
                                     <createNew>true</createNew>
                                     <fullReplication>new</fullReplication>
                                     <applicationRuleKey>RULE-APPLICATION ${cd.pega.app.name} ${cd.pega.app.version}</applicationRuleKey>
