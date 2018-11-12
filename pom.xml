@@ -16,7 +16,11 @@
 
     <properties>
         <maven-assembly-plugin.skip-assembly>false</maven-assembly-plugin.skip-assembly>
-        <sonar.skip>false</sonar.skip>
+        <ninja.sonar.analyze.skip>false</ninja.sonar.analyze.skip>
+        <ninja.codebase.id>${project.groupId}:${project.artifactId}</ninja.codebase.id>
+
+        <cd.env.pega.ninja-developer.id>developer@orders</cd.env.pega.ninja-developer.id>
+        <cd.env.pega.ninja-developer.password>rules</cd.env.pega.ninja-developer.password>
     </properties>
 
     <modules>
