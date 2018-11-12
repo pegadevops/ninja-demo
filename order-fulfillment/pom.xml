@@ -22,6 +22,7 @@
         <cd.pega.app.version>01.01.01</cd.pega.app.version>
         <ninja.ut.coverage.skip>false</ninja.ut.coverage.skip>
         <ninja.sonar.analyze.skip>false</ninja.sonar.analyze.skip>
+        <ninja.codebase.id>${project.groupId}:${project.artifactId}</ninja.codebase.id>
 
         <cd.env.pega.ninja-developer.id>developer@orders</cd.env.pega.ninja-developer.id>
         <cd.env.pega.ninja-developer.password>rules</cd.env.pega.ninja-developer.password>
