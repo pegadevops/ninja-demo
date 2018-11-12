@@ -33,7 +33,7 @@
         <ninja.sonar.analyze.skip>true</ninja.sonar.analyze.skip>
         <sonar.skip>${ninja.sonar.analyze.skip}</sonar.skip>
         <sonar.host.url>http://localhost:9000</sonar.host.url>
-        <sonar.login>ninja-pileline</sonar.login>
+        <sonar.login>ninja-pipeline</sonar.login>
         <sonar.password>pawxa0-torsyf-moZfim</sonar.password>
 
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
