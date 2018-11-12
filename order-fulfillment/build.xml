@@ -62,7 +62,7 @@
         <zip basedir="${dir.archive-temp}" destfile="${dir.staging}/ninja-pega-runtime-${ninja.version}.zip"/>
         <delete dir="${dir.archive-temp}"/>
 
-        <buildchunks builddir="${dir.build}">
+        <buildchunks builddir="${dir.build}" dumpdir="${dir.build.dump}" dumpmode="${dump.mode}">
             <embedded chunkid="ninja-pega-runtime" src="${dir.staging}/ninja-pega-runtime-${ninja.version}.zip"/>
 
             <pegaactivity chunkid="delete-ninja-tech-user" componentid="pega-webapp" classname="@baseclass" activityname="DeleteObject">
