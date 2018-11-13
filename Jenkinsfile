@@ -17,10 +17,12 @@ pipeline {
             }
         }
         stage('Quality Gate') {
-            timeout(time: 15, unit: 'MINUTES') {
-                def qualityGate = waitForQualityGate()
-                if (qualityGate.status == 'ERROR') {
-                  error "Sonar Quality Gate failed: ${qualityGate.status}"
+            steps {
+                timeout(time: 15, unit: 'MINUTES') {
+                    def qualityGate = waitForQualityGate()
+                    if (qualityGate.status == 'ERROR') {
+                        error "Sonar Quality Gate failed: ${qualityGate.status}"
+                    }
                 }
             }
         }
