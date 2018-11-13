@@ -35,7 +35,6 @@ import static ojxu4t.intt.lastMile.quoteService.QuoteService.C_OJXU4T_INT_LASTMI
 @RunWith(NinjaRemoteRunner.class)
 public class RegisterQuote_InnercomTest extends OrderFulfillmentTestSupport {
 
-    public static final String G_INT_PAGE = "Ninja_UT_IntPage";
     public static final String V_QUOTE_ID = "Quote-Id";
     public static final String V_SOAP_FAULT_REASON = "My SOAP Fault Reason";
 
@@ -58,10 +57,8 @@ public class RegisterQuote_InnercomTest extends OrderFulfillmentTestSupport {
     public void fault() {
         preparePage(G_PRIMARY_PAGE).create(LastMile.C_OJXU4T_ORDERFUL_WORK_LAST_MILE);
         preparePage(G_INT_PAGE).create(C_OJXU4T_INT_LASTMILE_QUOTESERVICE);
-        prepareParameter("IntPage").value(G_INT_PAGE);
         expect().connectSoap().service("AddQuote").className(C_OJXU4T_INT_LASTMILE_QUOTESERVICE).andMock(context -> {
-            preparePage(G_INT_PAGE).prop("pySOAPFaultReason", V_SOAP_FAULT_REASON);
-            context.prepareResult().exception("SOAP Fault");
+            context.prepareResponseEnvelope().value(String.format(file("fault.xml"), V_SOAP_FAULT_REASON));
         });
         expect().logMessage().level(LogLevel.ERROR).message("[RegisterQuote] AddQuote service invocation failed: " + V_SOAP_FAULT_REASON).andMock();
 
