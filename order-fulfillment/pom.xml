@@ -19,7 +19,7 @@
 
         <cd.pega.ruleset.max.version>01-01-02</cd.pega.ruleset.max.version>
         <cd.pega.app.name>OrderFul</cd.pega.app.name>
-        <cd.pega.app.version>01.01.01</cd.pega.app.version>
+        <cd.pega.app.version>01.01.02</cd.pega.app.version>
         <ninja.ut.coverage.skip>false</ninja.ut.coverage.skip>
         <ninja.sonar.analyze.skip>false</ninja.sonar.analyze.skip>
         <ninja.codebase.id>${project.groupId}:${project.artifactId}</ninja.codebase.id>
