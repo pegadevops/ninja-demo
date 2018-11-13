@@ -749,7 +749,7 @@
                                 </goals>
                                 <configuration>
                                     <createNew>true</createNew>
-                                    <fullReplication>yes</fullReplication>
+                                    <fullReplication>new</fullReplication>
                                     <applicationRuleKey>RULE-APPLICATION ${cd.pega.app.name} ${cd.pega.app.version}</applicationRuleKey>
                                 </configuration>
                             </execution>
