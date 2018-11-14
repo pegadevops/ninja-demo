@@ -86,6 +86,8 @@
                 <instance inskey="DATA-ADMIN-OPERATOR-ACCESSGROUP NINJADEMO:DEVELOPER">
                     <prop reference="pyDefaultAppVersion" value="${cd.pega.app.version}"/>
                 </instance>
+                <instance inskey="DATA-ADMIN-SYSTEM-SETTINGS NINJA-DEMO!/FIXER/API/ENDPOINT"/>
+                <instance inskey="DATA-ADMIN-SYSTEM-SETTINGS NINJA-DEMO!/FIXER/API/KEY"/>
             </pegaarchive>
 
             <pegaactivity chunkid="delete-lending-user" componentid="lending-webapp" classname="@baseclass" activityname="DeleteObject">
