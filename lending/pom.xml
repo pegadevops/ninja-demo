@@ -16,7 +16,7 @@
     <properties>
         <maven-assembly-plugin.skip-assembly>false</maven-assembly-plugin.skip-assembly>
 
-        <cd.pega.ruleset.max.version>02-01-01</cd.pega.ruleset.max.version>
+        <cd.pega.ruleset.max.version>01-20-01</cd.pega.ruleset.max.version>
         <cd.pega.app.name>NinjaDemo</cd.pega.app.name>
         <cd.pega.app.version>02.01</cd.pega.app.version>
         <ninja.ut.coverage.skip>false</ninja.ut.coverage.skip>
