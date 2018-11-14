@@ -19,13 +19,13 @@ pipeline {
         stage('QA') {
             steps {
                 input 'Proceed to QA with this build?'
-                sh 'src/main/scripts/deploy-qa.sh'
+                sh './src/main/scripts/deploy-qa.sh'
             }
         }
         stage('Release') {
             steps {
                 input 'Release this build?'
-                sh 'src/main/scripts/release.sh'
+                sh './src/main/scripts/release.sh'
             }
         }
     }
