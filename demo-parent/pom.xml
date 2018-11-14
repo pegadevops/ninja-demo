@@ -31,6 +31,7 @@
         <ninja.codebase.id/>
         <ninja.ut.coverage.skip>true</ninja.ut.coverage.skip>
         <ninja.sonar.analyze.skip>true</ninja.sonar.analyze.skip>
+        <sonar.skip>${ninja.sonar.analyze.skip}</sonar.skip>
         <sonar.host.url>http://sonar:9000</sonar.host.url>
         <sonar.login>ninja-pipeline</sonar.login>
         <sonar.password>pawxa0-torsyf-moZfim</sonar.password>
