@@ -13,16 +13,31 @@
  */
 package ninja.demo.exchangeRates;
 
+import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import ru.lanit.bpm.common.junit.category.UnitTests;
 import ru.lanit.bpm.ninja.unit.client.NinjaRemoteRunner;
 import ru.lanit.bpm.ninja.unit.client.NinjaTestSupport;
 
+import static ninja.demo.exchageRates.ExchangeRates.C_NINJA_DEMO_EXCHANGE_RATES;
+
 /**
  * todo Document type LoadLatestExchangeRates_Activity
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public abstract class LoadLatestExchangeRates_Activity extends NinjaTestSupport {
+public class LoadLatestExchangeRates_Activity extends NinjaTestSupport {
+    public static final String G_PRIMARY_PAGE = "UT_PrimaryPage";
+
+    @Test
+    public void loadExchangeRates() {
+        preparePage(G_PRIMARY_PAGE).create(C_NINJA_DEMO_EXCHANGE_RATES);
+        prepareParameter("baseCurrency").value("EUR");
+        expect().activity().name("Invoke").andMock(context -> preparePage(G_PRIMARY_PAGE).prop("PlainResponse", file("success.json")));
+
+        invoke().activity().primaryPage(G_PRIMARY_PAGE).name("LoadLatestExchangeRates").className(C_NINJA_DEMO_EXCHANGE_RATES);
+
+        assertPage(G_PRIMARY_PAGE).prop("Rates(USD)", "1.15");
+    }
 }
