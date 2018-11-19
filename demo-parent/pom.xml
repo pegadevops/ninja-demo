@@ -11,7 +11,7 @@
     <name>Demo - Parent</name>
 
     <properties>
-        <ninja.version>2.1.2691.RELEASE</ninja.version>
+        <ninja.version>2.1.2728.RELEASE</ninja.version>
         <goblin.version>4.354.RELEASE</goblin.version>
 
         <cd.build.pega.include.unlocked>true</cd.build.pega.include.unlocked>
