@@ -20,7 +20,7 @@
         <cd.env.pega.ninja-developer.id/>
         <cd.env.pega.ninja-developer.password/>
         <cd.env.pega.timeout>900000</cd.env.pega.timeout>
-        <cd.env.pega.cookie.mode>BULK</cd.env.pega.cookie.mode>
+        <cd.env.pega.cookie.mode>DEV</cd.env.pega.cookie.mode>
 
         <dir.build>${project.build.directory}/build</dir.build>
         <dir.build.dump>${project.build.directory}/build-dump</dir.build.dump>
@@ -694,6 +694,31 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>ru.lanit.bpm.ninja</groupId>
+                <artifactId>ninja-delivery-maven-plugin</artifactId>
+                <configuration>
+                    <pegaUrl>${cd.env.pega.url}</pegaUrl>
+                    <pegaLogin>${cd.env.pega.ninja-developer.id}</pegaLogin>
+                    <pegaPassword>${cd.env.pega.ninja-developer.password}</pegaPassword>
+                    <pegaCookieMode>${cd.env.pega.cookie.mode}</pegaCookieMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-skeleton</id>
+                        <goals>
+                            <goal>generate-skeleton</goal>
+                        </goals>
+                        <configuration>
+                            <pegaFilter>
+                                <codebase>
+                                    <id>${ninja.codebase.id}</id>
+                                </codebase>
+                            </pegaFilter>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -714,6 +739,7 @@
             <id>build-server</id>
             <properties>
                 <dump.mode>on</dump.mode>
+                <cd.env.pega.cookie.mode>BULK</cd.env.pega.cookie.mode>
             </properties>
             <build>
                 <plugins>
@@ -721,12 +747,6 @@
                         <groupId>ru.lanit.bpm.ninja</groupId>
                         <artifactId>ninja-delivery-maven-plugin</artifactId>
                         <!--suppress MavenModelInspection -->
-                        <configuration>
-                            <pegaUrl>${cd.env.pega.url}</pegaUrl>
-                            <pegaLogin>${cd.env.pega.ninja-developer.id}</pegaLogin>
-                            <pegaPassword>${cd.env.pega.ninja-developer.password}</pegaPassword>
-                            <pegaCookieMode>${cd.env.pega.cookie.mode}</pegaCookieMode>
-                        </configuration>
                         <executions>
                             <execution>
                                 <id>update-codebase</id>
