@@ -6,7 +6,7 @@ pipeline {
                 withMaven(maven: 'M3', publisherStrategy: 'EXPLICIT', globalMavenSettingsConfig: 'mvn-global-settings') {
                     sh 'mvn -pl demo-parent versions:set@set-build-version -Dbuild.patch.version=$BUILD_NUMBER'
                     withSonarQubeEnv('Sonar') {
-                        sh 'mvn clean deploy -U -P env-dev,build-server,code-coverage'
+                        sh 'mvn clean deploy -U -P env-dev,build-server,nightly-build,code-coverage'
                     }
                 }
             }
@@ -32,7 +32,9 @@ pipeline {
         stage('Release') {
             steps {
                 input 'Release this build?'
-                sh './src/main/scripts/release.sh'
+                withMaven(maven: 'M3', publisherStrategy: 'EXPLICIT', globalMavenSettingsConfig: 'mvn-global-settings') {
+                    sh 'mvn deploy-maven-plugin:deploy-artifacts@deploy-release-cli -P build-server'
+                }
             }
         }
     }

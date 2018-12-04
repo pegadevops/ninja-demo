@@ -120,8 +120,8 @@
         <build.version>${build.major.version}.${build.minor.version}.${build.patch.version}</build.version>
         <release.version>${build.version}.RELEASE</release.version>
 
-        <publish.repository.id>nightly-builds</publish.repository.id>
-        <publish.repository.url>http://nexus.bpm.lanit/repository/nightly-builds/</publish.repository.url>
+        <publish.repository.id>bpm-releases</publish.repository.id>
+        <publish.repository.url>http://nexus.bpm.lanit/nexus/content/repositories/releases</publish.repository.url>
     </properties>
 
     <distributionManagement>
@@ -736,6 +736,13 @@
             </properties>
         </profile>
         <profile>
+            <id>nightly-build</id>
+            <properties>
+                <publish.repository.id>nightly-builds</publish.repository.id>
+                <publish.repository.url>http://nexus.bpm.lanit/repository/nightly-builds/</publish.repository.url>
+            </properties>
+        </profile>
+        <profile>
             <id>build-server</id>
             <properties>
                 <dump.mode>on</dump.mode>
@@ -770,6 +777,29 @@
                                     <codebaseId>${ninja.codebase.id}</codebaseId>
                                     <skip>${ninja.sonar.analyze.skip}</skip>
                                 </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>ru.lanit.bpm.common</groupId>
+                        <artifactId>deploy-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>deploy-release-cli</id>
+                                <goals>
+                                    <goal>deploy-artifacts</goal>
+                                </goals>
+                                <configuration>
+                                    <repositoryId>${publish.repository.id}</repositoryId>
+                                    <url>${publish.repository.url}</url>
+                                    <version>${project.version}</version>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <goals>
+                                    <goal>dump-artifacts</goal>
+                                </goals>
+                                <phase>verify</phase>
                             </execution>
                         </executions>
                     </plugin>
