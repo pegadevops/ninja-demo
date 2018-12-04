@@ -33,6 +33,7 @@ pipeline {
             steps {
                 input 'Release this build?'
                 withMaven(maven: 'M3', publisherStrategy: 'EXPLICIT', globalMavenSettingsConfig: 'mvn-global-settings') {
+                    sh 'mvn -pl ams-parent versions:set@set-release-version -Dbuild.patch.version=$BUILD_NUMBER'
                     sh 'mvn deploy-maven-plugin:deploy-artifacts@deploy-release-cli -P build-server'
                 }
             }
