@@ -89,6 +89,13 @@
                 <ruleset name="Azure" versions="[01-01:${cd.pega.ruleset.max.version}]" unlocked="${cd.build.pega.include.unlocked}"/>
                 <ruleset name="SearchMap" versions="[01-01:${cd.pega.ruleset.max.version}]" unlocked="${cd.build.pega.include.unlocked}"/>
                 <ruleset name="QuoteService" versions="[01-01:${cd.pega.ruleset.max.version}]" unlocked="${cd.build.pega.include.unlocked}"/>
+
+                <!--Dictionaries -->
+                <instances classname="OJXU4T-OrderFul-Data-Bandwidth"/>
+                <instances classname="OJXU4T-OrderFul-Data-LineDetails"/>
+                <instances classname="OJXU4T-OrderFul-Data-Project"/>
+
+                <!--Configuration data instances-->
                 <instance inskey="DATA-ADMIN-OPERATOR-ACCESSGROUP ORDERFUL:ADMINISTRATORS">
                     <prop reference="pyDefaultAppVersion" value="${cd.pega.app.version}"/>
                 </instance>
