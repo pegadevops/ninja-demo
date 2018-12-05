@@ -14,8 +14,8 @@
     <target name="init.classpath.manually" unless="maven.plugin.classpath.exists">
         <echo message="Initializing classpath manually"/>
         <property environment="env"/>
-        <property name="goblin.version" value="3.313.RELEASE"/>
-        <property name="ninja.version" value="1.7.2276.RELEASE"/>
+        <property name="goblin.version" value="4.354.RELEASE"/>
+        <property name="ninja.version" value="2.1.2728.RELEASE"/>
         <property name="M2_REPO" value="${env.M2_REPO}"/>
         <path id="maven.plugin.classpath">
             <pathelement location="${M2_REPO}/ru/lanit/bpm/goblin/goblin-ant-common/${goblin.version}/goblin-ant-common-${goblin.version}.jar"/>
@@ -79,7 +79,7 @@
                 <parameter name="unitName" value="Installation"/>
             </pegaactivity>
 
-            <sqlscripts defaultDialect="POSTGRESQL" chunkidprefix="db-pega-" chunksdir="${basedir}/src/main/dbscripts" componentid="pega-db" profile="database"/>
+            <sqlscripts defaultDialect="POSTGRESQL" chunkidprefix="db-pega-" chunksdir="${basedir}/src/main/dbscripts" componentid="pega-db"/>
 
             <pegaarchive chunkid="orders-app" componentid="orders-webapp">
                 <ruleset name="OrderFul" versions="[01-01:${cd.pega.ruleset.max.version}]" unlocked="${cd.build.pega.include.unlocked}"/>
