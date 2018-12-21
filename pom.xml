@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.pegadevops.ninja</groupId>
         <artifactId>demo-parent</artifactId>
-        <version>2.1.02.local</version>
+        <version>CURRENT</version>
         <relativePath>demo-parent/pom.xml</relativePath>
     </parent>
 
