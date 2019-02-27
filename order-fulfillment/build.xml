@@ -110,7 +110,7 @@
 
                 <!--UI Kit 11-->
                 <instance inskey="RULE-APPLICATION UIKIT 11.01"/>
-                <ruleset name="OrderFul" versions="[11-01-01:11-01-01]" unlocked="${cd.build.pega.include.unlocked}"/>
+                <ruleset name="UI-Kit-7" versions="[11-01-01:11-01-01]" unlocked="${cd.build.pega.include.unlocked}"/>
             </pegaarchive>
 
             <pegaactivity chunkid="delete-orders-user" componentid="orders-webapp" classname="@baseclass" activityname="DeleteObject">
