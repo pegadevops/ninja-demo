@@ -107,6 +107,10 @@
                 </instance>
                 <instance inskey="DATA-ADMIN-SYSTEM-SETTINGS AZURE!AZURE/ATLAS/API/VERSION"/>
                 <instance inskey="DATA-ADMIN-SYSTEM-SETTINGS AZURE!AZURE/ATLAS/API/KEY"/>
+
+                <!--UI Kit 11-->
+                <instance inskey="RULE-APPLICATION UIKIT 11.01"/>
+                <ruleset name="OrderFul" versions="[11-01-01:11-01-01]" unlocked="${cd.build.pega.include.unlocked}"/>
             </pegaarchive>
 
             <pegaactivity chunkid="delete-orders-user" componentid="orders-webapp" classname="@baseclass" activityname="DeleteObject">
