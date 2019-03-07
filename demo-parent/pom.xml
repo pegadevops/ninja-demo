@@ -120,8 +120,8 @@
         <build.version>${build.major.version}.${build.minor.version}.${build.patch.version}</build.version>
         <release.version>${build.version}.RELEASE</release.version>
 
-        <publish.repository.id>bpm-releases</publish.repository.id>
-        <publish.repository.url>http://nexus.bpm.lanit/nexus/content/repositories/releases</publish.repository.url>
+        <publish.repository.id>demo-releases</publish.repository.id>
+        <publish.repository.url>error-demo-releases-repository-url-is-required</publish.repository.url>
     </properties>
 
     <distributionManagement>
@@ -738,8 +738,8 @@
         <profile>
             <id>nightly-build</id>
             <properties>
-                <publish.repository.id>nightly-builds</publish.repository.id>
-                <publish.repository.url>http://nexus.bpm.lanit/repository/nightly-builds/</publish.repository.url>
+                <publish.repository.id>demo-nightly-builds</publish.repository.id>
+                <publish.repository.url>error-demo-nightly-builds-repository-url-is-required</publish.repository.url>
             </properties>
         </profile>
         <profile>
