@@ -11,6 +11,8 @@
     <name>Demo - Parent</name>
 
     <properties>
+        <dev-env-pega-url>http://localhost:8080/prweb/PRServlet</dev-env-pega-url>
+
         <ninja.version>2.1.2735.RELEASE</ninja.version>
         <goblin.version>4.354.RELEASE</goblin.version>
 
@@ -122,6 +124,7 @@
 
         <publish.repository.id>demo-releases</publish.repository.id>
         <publish.repository.url>error-demo-releases-repository-url-is-required</publish.repository.url>
+        <dev-env-pega-url>http://localhost:8080/prweb/PRServlet</dev-env-pega-url>
     </properties>
 
     <repositories>
@@ -688,7 +691,7 @@
         <profile>
             <id>env-dev</id>
             <properties>
-                <cd.env.pega.url>http://localhost:8080/prweb/PRServlet</cd.env.pega.url>
+                <cd.env.pega.url>${dev-env-pega-url}</cd.env.pega.url>
             </properties>
         </profile>
         <profile>
