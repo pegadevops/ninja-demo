@@ -31,17 +31,6 @@
         <module>lending</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <name>ninja-releases</name>
-            <id>ninja-releases</id>
-            <url>http://51.144.91.53:8081/repository/maven-releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
             <plugin>

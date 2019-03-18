@@ -124,6 +124,17 @@
         <publish.repository.url>error-demo-releases-repository-url-is-required</publish.repository.url>
     </properties>
 
+    <repositories>
+        <repository>
+            <name>ninja-releases</name>
+            <id>ninja-releases</id>
+            <url>http://51.144.91.53:8081/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
     <distributionManagement>
         <repository>
             <id>${publish.repository.id}</id>
@@ -332,31 +343,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>ru.lanit.bpm.goblin</groupId>
-            <artifactId>goblin-deploy-core</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>ru.lanit.bpm.ninja</groupId>
-            <artifactId>ninja-ra-goblin-ext-pega-archive</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>ru.lanit.bpm.ninja</groupId>
-            <artifactId>ninja-ra-goblin-ext-pega-activity</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>ru.lanit.bpm.goblin</groupId>
-            <artifactId>goblin-deploy-ext-db-sql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>ru.lanit.bpm.goblin</groupId>
-            <artifactId>goblin-deploy-ext-embedded</artifactId>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
@@ -694,31 +680,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
-                <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-delivery-maven-plugin</artifactId>
-                <configuration>
-                    <pegaUrl>${cd.env.pega.url}</pegaUrl>
-                    <pegaLogin>${cd.env.pega.ninja-developer.id}</pegaLogin>
-                    <pegaPassword>${cd.env.pega.ninja-developer.password}</pegaPassword>
-                    <pegaCookieMode>${cd.env.pega.cookie.mode}</pegaCookieMode>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>generate-skeleton</id>
-                        <goals>
-                            <goal>generate-skeleton</goal>
-                        </goals>
-                        <configuration>
-                            <pegaFilter>
-                                <codebase>
-                                    <id>${ninja.codebase.id}</id>
-                                </codebase>
-                            </pegaFilter>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
         </plugins>
     </build>
 
@@ -748,6 +710,33 @@
                 <dump.mode>on</dump.mode>
                 <cd.env.pega.cookie.mode>BULK</cd.env.pega.cookie.mode>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>ru.lanit.bpm.goblin</groupId>
+                    <artifactId>goblin-deploy-core</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>ru.lanit.bpm.ninja</groupId>
+                    <artifactId>ninja-ra-goblin-ext-pega-archive</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>ru.lanit.bpm.ninja</groupId>
+                    <artifactId>ninja-ra-goblin-ext-pega-activity</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>ru.lanit.bpm.goblin</groupId>
+                    <artifactId>goblin-deploy-ext-db-sql</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>ru.lanit.bpm.goblin</groupId>
+                    <artifactId>goblin-deploy-ext-embedded</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -800,6 +789,31 @@
                                     <goal>dump-artifacts</goal>
                                 </goals>
                                 <phase>verify</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>ru.lanit.bpm.ninja</groupId>
+                        <artifactId>ninja-delivery-maven-plugin</artifactId>
+                        <configuration>
+                            <pegaUrl>${cd.env.pega.url}</pegaUrl>
+                            <pegaLogin>${cd.env.pega.ninja-developer.id}</pegaLogin>
+                            <pegaPassword>${cd.env.pega.ninja-developer.password}</pegaPassword>
+                            <pegaCookieMode>${cd.env.pega.cookie.mode}</pegaCookieMode>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>generate-skeleton</id>
+                                <goals>
+                                    <goal>generate-skeleton</goal>
+                                </goals>
+                                <configuration>
+                                    <pegaFilter>
+                                        <codebase>
+                                            <id>${ninja.codebase.id}</id>
+                                        </codebase>
+                                    </pegaFilter>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
