@@ -42,6 +42,19 @@ public class OrderFulfillmentTestSupport extends NinjaTestSupport {
 
     public static final String G_INT_PAGE = "Ninja_UT_IntPage";
     public static final String G_PRIMARY_PAGE = "Ninja_UT";
+    private static final String G_PEGA_VERSION_DEFAULT = "7.4";
+
+    protected String pegaVersion() {
+        String ver = System.getProperty("pega.version");
+        if (ver == null) {
+            ver = G_PEGA_VERSION_DEFAULT;
+        }
+        return ver;
+    }
+
+    protected boolean pegaVersionIsLessThan74() {
+        return pegaVersion().compareTo(G_PEGA_VERSION_DEFAULT) < 0;
+    }
 
     protected void expectDictLookup(String clazz, String pyId, String pyLabel) {
         expect().lookup().className(clazz).andMock(new MockBehaviour<MockActivityContext>() {

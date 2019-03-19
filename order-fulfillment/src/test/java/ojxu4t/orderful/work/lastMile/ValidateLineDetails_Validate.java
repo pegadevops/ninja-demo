@@ -66,7 +66,11 @@ public class ValidateLineDetails_Validate extends OrderFulfillmentTestSupport {
 
         invokeRule();
 
-        assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".LineId: Please select line type from the list");
+        if (pegaVersionIsLessThan74()) {
+            assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".LineId: ** Please select line type from the list");
+        } else {
+            assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".LineId: Please select line type from the list");
+        }
     }
 
 
