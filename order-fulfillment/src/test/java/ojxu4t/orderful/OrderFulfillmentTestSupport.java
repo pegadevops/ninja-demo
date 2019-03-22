@@ -31,6 +31,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.StringReader;
+import ru.lanit.bpm.ninja.client.pegaclient.PegaClient;
+import ru.lanit.bpm.ninja.client.pegaclient.PegaClientBuilder;
 
 import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_ID;
 import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_LABEL;
@@ -45,11 +47,14 @@ public class OrderFulfillmentTestSupport extends NinjaTestSupport {
     private static final String G_PEGA_VERSION_DEFAULT = "7.4";
 
     protected String pegaVersion() {
-        String ver = System.getProperty("pega.version");
-        if (ver == null) {
-            ver = G_PEGA_VERSION_DEFAULT;
+        try {
+            PegaClient pegaClient = PegaClientBuilder.detect();
+            String result = pegaClient.callActivity("Utilities.GetVersion");
+            System.out.println("ETHICLAB: ARGGGGGGHHHHH: " + result);
+            return result;
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
         }
-        return ver;
     }
 
     protected boolean pegaVersionIsLessThan74() {
