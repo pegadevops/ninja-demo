@@ -58,7 +58,7 @@ public class ValidateOrderDetails_Validate extends OrderFulfillmentTestSupport {
 
         invokeRule();
 
-        assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".pxListSize: Please add at least one location");
+        assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".pxListSize: ** Please add at least one location");
     }
 
     @Test
@@ -83,7 +83,11 @@ public class ValidateOrderDetails_Validate extends OrderFulfillmentTestSupport {
 
         invokeRule();
 
-        assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".ProjectId: Please select project from the list");
+        if (pegaVersionIsLessThan74()) {
+            assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".ProjectId: ** Please select project from the list");
+        } else {
+            assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".ProjectId: Please select project from the list");
+        }
     }
 
     @Test
@@ -107,8 +111,11 @@ public class ValidateOrderDetails_Validate extends OrderFulfillmentTestSupport {
         appendLocation();
 
         invokeRule();
-
-        assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".Bandwidth: Please select bandwidth from the list");
+        if (pegaVersionIsLessThan74()) {
+            assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".Bandwidth: ** Please select bandwidth from the list");
+        } else {
+            assertPage(G_PRIMARY_PAGE).messages().string().messageEquals(".Bandwidth: Please select bandwidth from the list");
+        }
     }
 
     // ===================================================================================================================

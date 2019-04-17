@@ -508,7 +508,7 @@
                     <argLine>${maven-surefire-plugin.arg.line}</argLine>
                     <forkCount>${maven-surefire-plugin.fork.count}</forkCount>
                     <reuseForks>${maven-surefire-plugin.reuse.forks}</reuseForks>
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                    <redirectTestOutputToFile>false</redirectTestOutputToFile>
                     <skipTests>${maven-surefire-plugin.skip}</skipTests>
                     <groups>${maven-surefire-plugin.groups}</groups>
                     <rerunFailingTestsCount>${maven-surefire-plugin.rerun.count}</rerunFailingTestsCount>

@@ -31,6 +31,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.StringReader;
+import ru.lanit.bpm.ninja.client.pegaclient.PegaClient;
+import ru.lanit.bpm.ninja.client.pegaclient.PegaClientBuilder;
 
 import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_ID;
 import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_LABEL;
@@ -42,6 +44,22 @@ public class OrderFulfillmentTestSupport extends NinjaTestSupport {
 
     public static final String G_INT_PAGE = "Ninja_UT_IntPage";
     public static final String G_PRIMARY_PAGE = "Ninja_UT";
+    private static final String G_PEGA_VERSION_DEFAULT = "7.4";
+
+    protected String pegaVersion() {
+        try {
+            PegaClient pegaClient = PegaClientBuilder.detect();
+            String result = pegaClient.callActivity("Utilities.GetVersion");
+            System.out.println("ETHICLAB: ARGGGGGGHHHHH: " + result);
+            return result;
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    protected boolean pegaVersionIsLessThan74() {
+        return pegaVersion().compareTo(G_PEGA_VERSION_DEFAULT) < 0;
+    }
 
     protected void expectDictLookup(String clazz, String pyId, String pyLabel) {
         expect().lookup().className(clazz).andMock(new MockBehaviour<MockActivityContext>() {
