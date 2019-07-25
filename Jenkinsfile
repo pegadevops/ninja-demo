@@ -6,7 +6,7 @@ pipeline {
                 withMaven(maven: 'M3', publisherStrategy: 'EXPLICIT', globalMavenSettingsConfig: 'mvn-global-settings') {
                     sh 'mvn -pl demo-parent versions:set@set-build-version -Dbuild.patch.version=$BUILD_NUMBER'
                     withSonarQubeEnv('Sonar') {
-                        sh 'mvn clean deploy -U -P env-dev,build-server,nightly-build,code-coverage'
+                        sh 'mvn clean deploy -U -P env-dev,build-server,nightly-build,code-coverage,sonar-analyze,update-codebase'
                     }
                 }
             }

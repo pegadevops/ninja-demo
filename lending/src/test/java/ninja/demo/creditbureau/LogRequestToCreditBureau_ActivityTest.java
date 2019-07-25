@@ -27,7 +27,7 @@ import ru.lanit.bpm.ninja.unit.client.r.db.MockObjSaveContext;
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class LogRequestToCreditBureau_Activity extends NinjaTestSupport {
+public class LogRequestToCreditBureau_ActivityTest extends NinjaTestSupport {
 
     public static final String P_PY_WORK_PAGE = "pyWorkPage";
     public static final String C_NINJA_DEMO_CREDIT_BUREAU = "Ninja-Demo-CreditBureau";

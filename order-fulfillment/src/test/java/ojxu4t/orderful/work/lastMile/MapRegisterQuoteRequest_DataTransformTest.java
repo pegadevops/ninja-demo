@@ -27,11 +27,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
 /**
- * todo Document type MapRegisterQuoteRequest_DataTransform
+ * todo Document type MapRegisterQuoteRequest_DataTransformTest
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class MapRegisterQuoteRequest_DataTransform extends OrderFulfillmentTestSupport {
+public class MapRegisterQuoteRequest_DataTransformTest extends OrderFulfillmentTestSupport {
 
     @Test
     public void mapping() throws IOException, SAXException, ParserConfigurationException {

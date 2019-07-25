@@ -23,11 +23,11 @@ import ru.lanit.bpm.ninja.unit.client.NinjaTestSupport;
 import static ninja.demo.exchageRates.ExchangeRates.C_NINJA_DEMO_EXCHANGE_RATES;
 
 /**
- * todo Document type LoadLatestExchangeRates_Activity
+ * todo Document type LoadLatestExchangeRates_ActivityTest
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class LoadLatestExchangeRates_Activity extends NinjaTestSupport {
+public class LoadLatestExchangeRates_ActivityTest extends NinjaTestSupport {
     public static final String G_PRIMARY_PAGE = "UT_PrimaryPage";
 
     @Test

@@ -27,11 +27,11 @@ import ru.lanit.bpm.ninja.unit.client.cp.PreparePage;
 import java.util.Date;
 
 /**
- * todo Document type AddQuoteParameters_XmlStream
+ * todo Document type AddQuoteParameters_XmlStreamTest
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class AddQuoteParameters_XmlStream extends NinjaTestSupport {
+public class AddQuoteParameters_XmlStreamTest extends NinjaTestSupport {
 
     public static final String G_PRIMARY_PAGE = "Ninja_UT";
     public static final String V_PROJECT_ID = "My-Proj-Id";

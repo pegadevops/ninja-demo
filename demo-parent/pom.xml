@@ -3,6 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ru.lanit.bpm.ninja</groupId>
+        <artifactId>ninja-parent-pom</artifactId>
+        <version>2.3.3284.RELEASE</version>
+        <relativePath/>
+    </parent>
 
     <groupId>com.pegadevops.ninja</groupId>
     <artifactId>demo-parent</artifactId>
@@ -11,114 +17,21 @@
     <name>Demo - Parent</name>
 
     <properties>
-        <ninja.version>2.1.2735.RELEASE</ninja.version>
-        <goblin.version>4.354.RELEASE</goblin.version>
-
-        <cd.build.pega.include.unlocked>true</cd.build.pega.include.unlocked>
-
-        <cd.env.pega.url>error-maven-profile-required</cd.env.pega.url>
-        <cd.env.pega.ninja-developer.id/>
-        <cd.env.pega.ninja-developer.password/>
-        <cd.env.pega.timeout>900000</cd.env.pega.timeout>
-        <cd.env.pega.cookie.mode>DEV</cd.env.pega.cookie.mode>
-
-        <dir.build>${project.build.directory}/build</dir.build>
-        <dir.build.dump>${project.build.directory}/build-dump</dir.build.dump>
-        <dump.mode>off</dump.mode>
-
         <cd.pega.app.name/>
         <cd.pega.app.version/>
-        <ninja.codebase.id/>
-        <ninja.ut.coverage.skip>true</ninja.ut.coverage.skip>
-        <ninja.sonar.analyze.skip>true</ninja.sonar.analyze.skip>
-        <sonar.skip>${ninja.sonar.analyze.skip}</sonar.skip>
+        <ninja.codebase.application.key>RULE-APPLICATION ${cd.pega.app.name} ${cd.pega.app.version}</ninja.codebase.application.key>
         <sonar.host.url>http://sonar:9000</sonar.host.url>
         <sonar.login>ninja-pipeline</sonar.login>
         <sonar.password>pawxa0-torsyf-moZfim</sonar.password>
 
-        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
-        <maven-assembly-plugin.skip-assembly>true</maven-assembly-plugin.skip-assembly>
-        <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
-        <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-        <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
-        <maven-failsafe-plugin.version>${maven-surefire-plugin.version}</maven-failsafe-plugin.version>
-        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-        <maven-jacoco-plugin.version>0.8.0</maven-jacoco-plugin.version>
-        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
-        <maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version>
-        <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
-        <maven-site-plugin.version>3.7</maven-site-plugin.version>
-        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-        <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
-        <maven-sonar-plugin.version>3.4.1.1168</maven-sonar-plugin.version>
-        <maven-versions-plugin.version>2.5</maven-versions-plugin.version>
-        <maven-properties-plugin.version>1.0.0</maven-properties-plugin.version>
-        <deploy-maven-plugin.version>1.0.12.RELEASE</deploy-maven-plugin.version>
-        <maven-versions-plugin.version>2.3</maven-versions-plugin.version>
-        <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
-        <wagon-maven-plugin.version>1.0</wagon-maven-plugin.version>
-        <ssh-maven-extension.version>2.12</ssh-maven-extension.version>
-
-        <maven-compiler-plugin.source.version>1.8</maven-compiler-plugin.source.version>
-        <maven-compiler-plugin.target.version>1.8</maven-compiler-plugin.target.version>
-        <maven-compiler-plugin.encoding>UTF-8</maven-compiler-plugin.encoding>
-        <maven-compiler-plugin.show.deprecation>true</maven-compiler-plugin.show.deprecation>
-        <maven-compiler-plugin.show.warnings>true</maven-compiler-plugin.show.warnings>
-        <maven-resources-plugin.encoding>UTF-8</maven-resources-plugin.encoding>
-        <maven-surefire-plugin.fork.count>1.5C</maven-surefire-plugin.fork.count>
-        <maven-surefire-plugin.reuse.forks>true</maven-surefire-plugin.reuse.forks>
-        <maven-surefire-plugin.skip>false</maven-surefire-plugin.skip>
-        <maven-surefire-plugin.arg.line>
-            -Xmx1024m
-            -Dninja.client.pega.url=${cd.env.pega.url}
-            -Dninja.client.pega.operator=${cd.env.pega.ninja-developer.id}
-            -Dninja.client.pega.password=${cd.env.pega.ninja-developer.password}
-            -Dninja.client.pega.timeout=${cd.env.pega.timeout}
-            -Dninja.client.pega.cookieMode=${cd.env.pega.cookie.mode}
-        </maven-surefire-plugin.arg.line>
-        <maven-surefire-plugin.rerun.count>0</maven-surefire-plugin.rerun.count>
         <maven-surefire-plugin.groups>ru.lanit.bpm.common.junit.category.UnitTests, ru.lanit.bpm.common.junit.category.IntegrationTests
         </maven-surefire-plugin.groups>
-        <maven-failsafe-plugin.fork.count>${maven-surefire-plugin.fork.count}</maven-failsafe-plugin.fork.count>
-        <maven-failsafe-plugin.reuse.forks>${maven-surefire-plugin.reuse.forks}</maven-failsafe-plugin.reuse.forks>
-        <maven-failsafe-plugin.skip>false</maven-failsafe-plugin.skip>
-        <maven-failsafe-plugin.arg.line>${maven-surefire-plugin.arg.line}</maven-failsafe-plugin.arg.line>
-        <maven-failsafe-plugin.encoding>UTF-8</maven-failsafe-plugin.encoding>
-        <maven-install-plugin.skip>true</maven-install-plugin.skip>
 
-        <slf4j.version>1.7.25</slf4j.version>
-        <log4j.version>1.2.17</log4j.version>
-
-        <junit-commons.version>2.16.RELEASE</junit-commons.version>
-        <junit.version>4.12</junit.version>
-
-        <commons-collections.version>3.2.2</commons-collections.version>
-        <commons-collections4.version>4.1</commons-collections4.version>
-        <commons-digester.version>2.1</commons-digester.version>
-        <commons-fileupload.version>1.3.3</commons-fileupload.version>
-        <commons-httpclient.version>4.5.5</commons-httpclient.version>
-        <commons-io.version>2.6</commons-io.version>
-        <commons-lang.version>2.6</commons-lang.version>
-        <commons-lang3.version>3.7</commons-lang3.version>
-        <commons-logging.version>1.2</commons-logging.version>
-
-        <jdbc-commons.version>1.0.14</jdbc-commons.version>
         <postgresql.version>42.2.1.jre7</postgresql.version>
 
-        <cucumber.version>2.3.1</cucumber.version>
-
-        <!-- To be used by versions plugin in a pipeline -->
-        <!-- By default uses sprint.patch semantic versioning pattern -->
-        <!-- sprint to be overridden in project POM, patch to be overridden by build server via JVM arg -->
-        <build.major.version>2</build.major.version>
-        <build.minor.version>1</build.minor.version>
-        <build.patch.version>0</build.patch.version>
-        <build.version>${build.major.version}.${build.minor.version}.${build.patch.version}</build.version>
-        <release.version>${build.version}.RELEASE</release.version>
+        <ninja.build.major.version>2</ninja.build.major.version>
+        <ninja.build.minor.version>3</ninja.build.minor.version>
+        <ninja.build.patch.version>0</ninja.build.patch.version>
 
         <publish.repository.id>demo-releases</publish.repository.id>
         <publish.repository.url>error-demo-releases-repository-url-is-required</publish.repository.url>
@@ -134,82 +47,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons-collections.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-collections4</artifactId>
-                <version>${commons-collections4.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-digester</groupId>
-                <artifactId>commons-digester</artifactId>
-                <version>${commons-digester.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>commons-fileupload</groupId>
-                <artifactId>commons-fileupload</artifactId>
-                <version>${commons-fileupload.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${commons-httpclient.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${commons-io.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons-lang.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${commons-logging.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-jcl</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jul-to-slf4j</artifactId>
-                <version>${slf4j.version}</version>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -217,103 +57,16 @@
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
+                <groupId>com.pegadevops.ninja</groupId>
+                <artifactId>lending</artifactId>
+                <version>CURRENT</version>
+                <type>goblin</type>
             </dependency>
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>apache-log4j-extras</artifactId>
-                <version>${log4j.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${postgresql.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ru.lanit.commons</groupId>
-                <artifactId>jdbc-commons</artifactId>
-                <version>${jdbc-commons.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.common</groupId>
-                <artifactId>junit-commons</artifactId>
-                <version>${junit-commons.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-unit-client</artifactId>
-                <version>${ninja.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.goblin</groupId>
-                <artifactId>goblin-ant-common</artifactId>
-                <version>${goblin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.goblin</groupId>
-                <artifactId>goblin-ant-base-tasks</artifactId>
-                <version>${goblin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-ra-goblin-tasks</artifactId>
-                <version>${ninja.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.goblin</groupId>
-                <artifactId>goblin-deploy-core</artifactId>
-                <version>${goblin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.goblin</groupId>
-                <artifactId>goblin-deploy-ext</artifactId>
-                <version>${goblin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-ra-goblin-ext-pega-archive</artifactId>
-                <version>${ninja.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.ninja</groupId>
-                <artifactId>ninja-ra-goblin-ext-pega-activity</artifactId>
-                <version>${ninja.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.goblin</groupId>
-                <artifactId>goblin-deploy-ext-db-sql</artifactId>
-                <version>${goblin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.goblin</groupId>
-                <artifactId>goblin-deploy-ext-jboss</artifactId>
-                <version>${goblin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ru.lanit.bpm.goblin</groupId>
-                <artifactId>goblin-deploy-ext-embedded</artifactId>
-                <version>${goblin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.cucmber</groupId>
-                <artifactId>cucumber-java</artifactId>
-                <version>${cucumber.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.cucmber</groupId>
-                <artifactId>cucumber-junit</artifactId>
-                <version>${cucumber.version}</version>
+                <groupId>com.pegadevops.ninja</groupId>
+                <artifactId>order-fulfillment</artifactId>
+                <version>CURRENT</version>
+                <type>goblin</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -359,349 +112,32 @@
             <artifactId>goblin-deploy-ext-embedded</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>ru.lanit.bpm.goblin</groupId>
+            <artifactId>goblin-deploy-ext-dep</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>${maven-antrun-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>${maven-assembly-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven-checkstyle-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven-clean-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven-deploy-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>${maven-enforcer-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${maven-failsafe-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>${maven-install-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven-jar-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven-javadoc-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${maven-pmd-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>${maven-resources-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>${maven-site-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven-source-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.sonarsource.scanner.maven</groupId>
-                    <artifactId>sonar-maven-plugin</artifactId>
-                    <version>${maven-sonar-plugin.version}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>${exec-maven-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>wagon-maven-plugin</artifactId>
-                    <version>${wagon-maven-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${maven-jacoco-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${maven-versions-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>properties-maven-plugin</artifactId>
-                    <version>${maven-properties-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>ru.lanit.bpm.common</groupId>
-                    <artifactId>deploy-maven-plugin</artifactId>
-                    <version>${deploy-maven-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>ru.lanit.bpm.ninja</groupId>
-                    <artifactId>ninja-delivery-maven-plugin</artifactId>
-                    <version>${ninja.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>set-build-version</id>
-                        <goals>
-                            <goal>set</goal>
-                        </goals>
-                        <configuration>
-                            <newVersion>${build.version}</newVersion>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>set-release-version</id>
-                        <goals>
-                            <goal>set</goal>
-                        </goals>
-                        <configuration>
-                            <newVersion>${release.version}</newVersion>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <argLine>${maven-surefire-plugin.arg.line}</argLine>
-                    <forkCount>${maven-surefire-plugin.fork.count}</forkCount>
-                    <reuseForks>${maven-surefire-plugin.reuse.forks}</reuseForks>
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    <skipTests>${maven-surefire-plugin.skip}</skipTests>
-                    <groups>${maven-surefire-plugin.groups}</groups>
-                    <rerunFailingTestsCount>${maven-surefire-plugin.rerun.count}</rerunFailingTestsCount>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                    <reportNameSuffix>${project.artifactId}</reportNameSuffix>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>run-tests</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>properties-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>set-ninja-properties</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>set-system-properties</goal>
-                        </goals>
-                        <configuration>
-                            <properties>
-                                <property>
-                                    <name>ninja.client.pega.url</name>
-                                    <value>${cd.env.pega.url}</value>
-                                </property>
-                                <property>
-                                    <name>ninja.client.pega.timeout</name>
-                                    <value>${cd.env.pega.timeout}</value>
-                                </property>
-                                <property>
-                                    <name>ninja.client.pega.cookieMode</name>
-                                    <value>${cd.env.pega.cookie.mode}</value>
-                                </property>
-                                <property>
-                                    <name>ninja.client.pega.operator</name>
-                                    <value>${cd.env.pega.ninja-developer.id}</value>
-                                </property>
-                                <property>
-                                    <name>ninja.client.pega.password</name>
-                                    <value>${cd.env.pega.ninja-developer.password}</value>
-                                </property>
-                            </properties>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${maven-compiler-plugin.source.version}</source>
-                    <target>${maven-compiler-plugin.source.version}</target>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>compile-tests</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>prepare-test-resources</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>testResources</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>package-build</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/assembly/assembly-build.xml</descriptor>
-                            </descriptors>
-                            <appendAssemblyId>false</appendAssemblyId>
-                            <skipAssembly>${maven-assembly-plugin.skip-assembly}</skipAssembly>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>construct-build</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <ant antfile="build.xml" target="build" inheritRefs="true"/>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>ru.lanit.bpm.goblin</groupId>
-                        <artifactId>goblin-ant-base-tasks</artifactId>
-                        <version>${goblin.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>ru.lanit.bpm.ninja</groupId>
-                        <artifactId>ninja-ra-goblin-tasks</artifactId>
-                        <version>${ninja.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>ru.lanit.bpm.goblin</groupId>
-                        <artifactId>goblin-ant-embedded-task</artifactId>
-                        <version>${goblin.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>ru.lanit.bpm.goblin</groupId>
-                        <artifactId>goblin-deploy-ext-embedded</artifactId>
-                        <version>${goblin.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>jcl-over-slf4j</artifactId>
-                        <version>${slf4j.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-simple</artifactId>
-                        <version>${slf4j.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>ru.lanit.bpm.ninja</groupId>
-                        <artifactId>ninja-pega-runtime</artifactId>
-                        <version>${ninja.version}</version>
-                        <type>zip</type>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
                 <groupId>ru.lanit.bpm.ninja</groupId>
                 <artifactId>ninja-delivery-maven-plugin</artifactId>
                 <configuration>
-                    <pegaUrl>${cd.env.pega.url}</pegaUrl>
-                    <pegaLogin>${cd.env.pega.ninja-developer.id}</pegaLogin>
-                    <pegaPassword>${cd.env.pega.ninja-developer.password}</pegaPassword>
-                    <pegaCookieMode>${cd.env.pega.cookie.mode}</pegaCookieMode>
+                    <pegaUrl>${ninja.pega.url}</pegaUrl>
+                    <pegaLogin>${ninja.pega.operator}</pegaLogin>
+                    <pegaPassword>${ninja.pega.password}</pegaPassword>
+                    <pegaCookieMode>${ninja.pega.cookieMode}</pegaCookieMode>
                 </configuration>
                 <executions>
                     <execution>
@@ -726,7 +162,7 @@
         <profile>
             <id>env-dev</id>
             <properties>
-                <cd.env.pega.url>http://pega74-pe:8080/prweb/PRServlet</cd.env.pega.url>
+                <ninja.pega.url>http://pega74-pe:8080/prweb/PRServlet</ninja.pega.url>
             </properties>
         </profile>
         <profile>
@@ -744,42 +180,8 @@
         </profile>
         <profile>
             <id>build-server</id>
-            <properties>
-                <dump.mode>on</dump.mode>
-                <cd.env.pega.cookie.mode>BULK</cd.env.pega.cookie.mode>
-            </properties>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>ru.lanit.bpm.ninja</groupId>
-                        <artifactId>ninja-delivery-maven-plugin</artifactId>
-                        <!--suppress MavenModelInspection -->
-                        <executions>
-                            <execution>
-                                <id>update-codebase</id>
-                                <goals>
-                                    <goal>update-codebase-filter</goal>
-                                </goals>
-                                <configuration>
-                                    <createNew>true</createNew>
-                                    <fullReplication>new</fullReplication>
-                                    <applicationRuleKey>RULE-APPLICATION ${cd.pega.app.name} ${cd.pega.app.version}</applicationRuleKey>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>sonar-analyze</id>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>sonar-analyze</goal>
-                                </goals>
-                                <configuration>
-                                    <pegaTimeout>360000</pegaTimeout>
-                                    <codebaseId>${ninja.codebase.id}</codebaseId>
-                                    <skip>${ninja.sonar.analyze.skip}</skip>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
                     <plugin>
                         <groupId>ru.lanit.bpm.common</groupId>
                         <artifactId>deploy-maven-plugin</artifactId>
@@ -795,47 +197,10 @@
                                     <version>${project.version}</version>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <goals>
-                                    <goal>dump-artifacts</goal>
-                                </goals>
-                                <phase>verify</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>code-coverage</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <configuration>
-                            <!--suppress MavenModelInspection -->
-                            <argLine>${ninja.ut.coverage.args} ${maven-surefire-plugin.arg.line}</argLine>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>ru.lanit.bpm.ninja</groupId>
-                        <artifactId>ninja-delivery-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>ninja-coverage</id>
-                                <goals>
-                                    <goal>coverage-start</goal>
-                                    <goal>coverage-finish</goal>
-                                </goals>
-                                <configuration>
-                                    <skip>${ninja.ut.coverage.skip}</skip>
-                                </configuration>
-                            </execution>
                         </executions>
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
-
 </project>

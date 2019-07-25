@@ -29,11 +29,11 @@ import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_ID;
 import static ru.lanit.bpm.ninja.common.utils.PegaConstants.P_PY_LABEL;
 
 /**
- * todo Document type ValidateOrderDetails_Validate
+ * todo Document type ValidateOrderDetails_ValidateTest
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class ValidateOrderDetails_Validate extends OrderFulfillmentTestSupport {
+public class ValidateOrderDetails_ValidateTest extends OrderFulfillmentTestSupport {
 
     public static final String G_PRIMARY_PAGE = "Ninja_UT";
     public static final String R_VALIDATE_ORDER_DETAILS = "ValidateOrderDetails";

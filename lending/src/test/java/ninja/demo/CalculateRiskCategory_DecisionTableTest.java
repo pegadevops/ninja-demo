@@ -29,7 +29,7 @@ import ru.lanit.bpm.ninja.unit.client.r.decision.InvokeDecisionTable;
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class CalculateRiskCategory_DecisionTable extends NinjaTestSupport {
+public class CalculateRiskCategory_DecisionTableTest extends NinjaTestSupport {
     public static final String P_NINJA_DEMO = "NinjaDemo";
     public static final String C_NINJA_DEMO = "Ninja-Demo";
     public static final String PROP_AGE = "Age";

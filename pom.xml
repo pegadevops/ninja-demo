@@ -14,21 +14,11 @@
     <packaging>pom</packaging>
     <name>Demo</name>
 
-    <properties>
-        <maven-assembly-plugin.skip-assembly>false</maven-assembly-plugin.skip-assembly>
-        <ninja.sonar.analyze.skip>false</ninja.sonar.analyze.skip>
-        <ninja.codebase.id>${project.groupId}:${project.artifactId}</ninja.codebase.id>
-
-        <cd.pega.app.name>Ninja</cd.pega.app.name>
-        <cd.pega.app.version>02.01</cd.pega.app.version>
-        <cd.env.pega.ninja-developer.id>developer@orders</cd.env.pega.ninja-developer.id>
-        <cd.env.pega.ninja-developer.password>rules</cd.env.pega.ninja-developer.password>
-    </properties>
-
     <modules>
         <module>demo-parent</module>
         <module>order-fulfillment</module>
         <module>lending</module>
+        <module>ninja-demo-app</module>
     </modules>
 
     <repositories>
@@ -44,23 +34,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.pegadevops.ninja</groupId>
-                        <artifactId>order-fulfillment</artifactId>
-                        <version>${project.version}</version>
-                        <type>zip</type>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.pegadevops.ninja</groupId>
-                        <artifactId>lending</artifactId>
-                        <version>${project.version}</version>
-                        <type>zip</type>
-                    </dependency>
-                </dependencies>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

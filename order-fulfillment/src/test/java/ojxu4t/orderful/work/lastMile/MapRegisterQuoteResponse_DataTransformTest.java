@@ -22,11 +22,11 @@ import ru.lanit.bpm.ninja.unit.client.NinjaRemoteRunner;
 import ru.lanit.bpm.ninja.unit.client.NinjaTestSupport;
 
 /**
- * todo Document type MapRegisterQuoteResponse_DataTransform
+ * todo Document type MapRegisterQuoteResponse_DataTransformTest
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class MapRegisterQuoteResponse_DataTransform extends NinjaTestSupport {
+public class MapRegisterQuoteResponse_DataTransformTest extends NinjaTestSupport {
 
     public static final String G_PRIMARY_PAGE = "Ninja_UT";
     public static final String V_QUOTE_ID = "quote-id";

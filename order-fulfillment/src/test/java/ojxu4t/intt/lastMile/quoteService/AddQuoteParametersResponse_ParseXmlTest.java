@@ -21,11 +21,11 @@ import ru.lanit.bpm.ninja.unit.client.NinjaRemoteRunner;
 import ru.lanit.bpm.ninja.unit.client.NinjaTestSupport;
 
 /**
- * todo Document type AddQuoteParametersResponse_ParseXml
+ * todo Document type AddQuoteParametersResponse_ParseXmlTest
  */
 @Category(UnitTests.class)
 @RunWith(NinjaRemoteRunner.class)
-public class AddQuoteParametersResponse_ParseXml extends NinjaTestSupport {
+public class AddQuoteParametersResponse_ParseXmlTest extends NinjaTestSupport {
 
     public static final String G_PRIMARY_PAGE = "Ninja_UT";
     public static final String XML = "<peg:AddQuoteResponse xmlns:peg=\"http://pegadevops.com\"><peg:quoteId>%1$s</peg:quoteId></peg:AddQuoteResponse>";

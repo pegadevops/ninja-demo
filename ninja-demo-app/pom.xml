@@ -2,36 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.pegadevops.ninja</groupId>
         <artifactId>demo-parent</artifactId>
+        <groupId>com.pegadevops.ninja</groupId>
         <version>CURRENT</version>
         <relativePath>../demo-parent/pom.xml</relativePath>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lending</artifactId>
-    <name>Demo - Lending</name>
+    <artifactId>ninja-demo-app</artifactId>
+    <name>Ninja Demo App</name>
     <packaging>goblin</packaging>
 
     <properties>
-        <cd.pega.ruleset.max.version>01-20-01</cd.pega.ruleset.max.version>
-        <cd.pega.app.name>NinjaDemo</cd.pega.app.name>
+        <cd.pega.app.name>Ninja</cd.pega.app.name>
         <cd.pega.app.version>02.01</cd.pega.app.version>
-
-        <ninja.pega.operator>developer@lending</ninja.pega.operator>
-        <ninja.pega.password>rules</ninja.pega.password>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>ru.lanit.bpm.ninja</groupId>
-            <artifactId>ninja-unit-client</artifactId>
-            <scope>test</scope>
+            <groupId>com.pegadevops.ninja</groupId>
+            <artifactId>lending</artifactId>
+            <type>goblin</type>
         </dependency>
         <dependency>
-            <groupId>ru.lanit.bpm.ninja</groupId>
-            <artifactId>ninja-pega-runtime</artifactId>
+            <groupId>com.pegadevops.ninja</groupId>
+            <artifactId>order-fulfillment</artifactId>
             <type>goblin</type>
         </dependency>
     </dependencies>

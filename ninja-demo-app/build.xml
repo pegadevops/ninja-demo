@@ -1,0 +1,20 @@
+<!-- If schema isnot visible run 'mvn initialize'-->
+<!DOCTYPE project PUBLIC "Ninja" "./target/schemas/ninja-tasks.dtd"[]>
+<project>
+    <target name="init.classpath.manually">
+        <echo message="Should not run, just fix for IDEA"/>
+        <path id="maven.plugin.classpath"/>
+    </target>
+
+    <target name="init">
+        <echo message="Starting from ${basedir}"/>
+        <typedef resource="ru/lanit/bpm/goblin/antlib.xml" classpathref="maven.plugin.classpath"/>
+        <typedef resource="ru/lanit/bpm/ninja/antlib.xml" classpathref="maven.plugin.classpath"/>
+        <typedef name="embedded" classname="ru.lanit.bpm.goblin.ant.tasks.EmbeddedTask"/>
+        <typedef name="exclude" classname="ru.lanit.bpm.goblin.ant.tasks.DependencyExclude"/>
+    </target>
+
+    <target name="build" depends="init">
+        <goblin builddir="${ninja.build.dir}" dumpdir="${ninja.build.dir.dump}" dumpmode="on"/>
+    </target>
+</project>

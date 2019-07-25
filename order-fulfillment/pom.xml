@@ -12,20 +12,15 @@
 
     <artifactId>order-fulfillment</artifactId>
     <name>Demo - Order Fulfillment</name>
-    <packaging>pom</packaging>
+    <packaging>goblin</packaging>
 
     <properties>
-        <maven-assembly-plugin.skip-assembly>false</maven-assembly-plugin.skip-assembly>
-
         <cd.pega.ruleset.max.version>01-01-02</cd.pega.ruleset.max.version>
         <cd.pega.app.name>OrderFul</cd.pega.app.name>
         <cd.pega.app.version>01.01.02</cd.pega.app.version>
-        <ninja.ut.coverage.skip>false</ninja.ut.coverage.skip>
-        <ninja.sonar.analyze.skip>false</ninja.sonar.analyze.skip>
-        <ninja.codebase.id>${project.groupId}:${project.artifactId}</ninja.codebase.id>
 
-        <cd.env.pega.ninja-developer.id>developer@orders</cd.env.pega.ninja-developer.id>
-        <cd.env.pega.ninja-developer.password>rules</cd.env.pega.ninja-developer.password>
+        <ninja.pega.operator>developer@orders</ninja.pega.operator>
+        <ninja.pega.password>rules</ninja.pega.password>
     </properties>
 
     <dependencies>
@@ -33,6 +28,11 @@
             <groupId>ru.lanit.bpm.ninja</groupId>
             <artifactId>ninja-unit-client</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.lanit.bpm.ninja</groupId>
+            <artifactId>ninja-pega-runtime</artifactId>
+            <type>goblin</type>
         </dependency>
     </dependencies>
 
