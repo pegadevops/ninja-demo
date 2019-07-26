@@ -62,10 +62,11 @@
 
                 <!--Applications-->
                 <instance inskey="RULE-APPLICATION ORDERFUL 01.01.02">
+                    <prop reference=".pyDependsOnList(1).pyAppVersion" value="#{pega.version}"/>
                     <prop reference=".pyDependsOnList(2).pyAppVersion" value="#{pega.uikit.version}"/>
                 </instance>
                 <instance inskey="RULE-APPLICATION ORDERFULDEV 01.01.01">
-                    <prop reference=".pyDependsOnList(4).pyAppVersion" value="#{pega.uikit.version}"/>
+                    <prop reference=".pyDependsOnList(3).pyAppVersion" value="#{pega.version}"/>
                 </instance>
             </pegaarchive>
 
