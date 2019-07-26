@@ -39,14 +39,6 @@
                 </instance>
                 <instance inskey="DATA-ADMIN-SYSTEM-SETTINGS NINJA-DEMO!/FIXER/API/ENDPOINT"/>
                 <instance inskey="DATA-ADMIN-SYSTEM-SETTINGS NINJA-DEMO!/FIXER/API/KEY"/>
-
-                <!--Applications-->
-                <instance inskey="RULE-APPLICATION NINJADEMO 02.01">
-                    <prop reference=".pyDependsOnList(1).pyAppVersion" value="#{pega.version}"/>
-                </instance>
-                <instance inskey="RULE-APPLICATION NINJADEMODEV 02.01">
-                    <prop reference=".pyDependsOnList(3).pyAppVersion" value="#{pega.version}"/>
-                </instance>
             </pegaarchive>
 
             <pegaactivity chunkid="delete-lending-user" componentid="lending-webapp" classname="@baseclass" activityname="DeleteObject">
