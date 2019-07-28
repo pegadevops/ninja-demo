@@ -17,6 +17,9 @@
     <properties>
         <cd.pega.app.name>Ninja</cd.pega.app.name>
         <cd.pega.app.version>02.01</cd.pega.app.version>
+
+        <ninja.pega.operator>developer@lending</ninja.pega.operator>
+        <ninja.pega.password>rules</ninja.pega.password>
     </properties>
 
     <dependencies>
