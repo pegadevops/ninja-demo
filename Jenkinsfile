@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'java -version'
                 sh 'mvn --version'
+                sh 'mvn clean package -P env-dev,build-server,nightly-build'
                 sh 'mvn -pl demo-parent versions:set@set-build-version -Dninja.build.patch.version=$BUILD_NUMBER'
                 withSonarQubeEnv('Sonar') {
                     sh 'mvn clean deploy -U -P env-dev,build-server,nightly-build,code-coverage,sonar-analyze,update-codebase'
