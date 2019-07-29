@@ -162,7 +162,7 @@
         <profile>
             <id>env-dev</id>
             <properties>
-                <ninja.pega.url>http://pega74-pe:8080/prweb/PRServlet</ninja.pega.url>
+                <ninja.pega.url>http://desktop:8080/prweb/PRServlet</ninja.pega.url>
             </properties>
         </profile>
         <profile>
