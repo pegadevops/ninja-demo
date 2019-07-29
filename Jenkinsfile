@@ -30,10 +30,8 @@ pipeline {
         stage('Release') {
             steps {
                 input 'Release this build?'
-                withMaven(maven: 'M3', publisherStrategy: 'EXPLICIT', globalMavenSettingsConfig: 'mvn-global-settings') {
-                    sh 'mvn -pl demo-parent versions:set@set-release-version -Dninja.build.patch.version=$BUILD_NUMBER'
-                    sh 'mvn deploy-maven-plugin:deploy-artifacts@deploy-release-cli -P build-server'
-                }
+                sh 'mvn -pl demo-parent versions:set@set-release-version -Dninja.build.patch.version=$BUILD_NUMBER'
+                sh 'mvn deploy-maven-plugin:deploy-artifacts@deploy-release-cli -P build-server'
             }
         }
     }
