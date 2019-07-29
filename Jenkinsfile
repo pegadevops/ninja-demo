@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'java --version'
                 withMaven(maven: 'M3', publisherStrategy: 'EXPLICIT', globalMavenSettingsConfig: 'mvn-global-settings') {
                     sh 'mvn -pl demo-parent versions:set@set-build-version -Dninja.build.patch.version=$BUILD_NUMBER'
                     withSonarQubeEnv('Sonar') {
