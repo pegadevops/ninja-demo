@@ -15,7 +15,7 @@
     <packaging>goblin</packaging>
 
     <properties>
-        <cd.pega.ruleset.max.version>01-01-02</cd.pega.ruleset.max.version>
+        <cd.pega.ruleset.max.version>01-01-03</cd.pega.ruleset.max.version>
         <cd.pega.app.name>OrderFul</cd.pega.app.name>
         <cd.pega.app.version>01.01.02</cd.pega.app.version>
 

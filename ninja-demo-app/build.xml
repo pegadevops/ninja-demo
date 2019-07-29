@@ -15,6 +15,10 @@
     </target>
 
     <target name="build" depends="init">
-        <goblin builddir="${ninja.build.dir}" dumpdir="${ninja.build.dir.dump}" dumpmode="on"/>
+        <goblin builddir="${ninja.build.dir}" dumpdir="${ninja.build.dir.dump}" dumpmode="on">
+            <dependency buildid="ru.lanit.bpm.ninja:ninja-pega-runtime"/>
+            <dependency buildid="com.pegadevops.ninja:lending"/>
+            <dependency buildid="com.pegadevops.ninja:order-fulfillment"/>
+        </goblin>
     </target>
 </project>
