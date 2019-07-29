@@ -1,9 +1,9 @@
 #!/bin/bash
-rm -rf ./target/demo
-mkdir -p ./target/demo
-cd ./target/demo
+rm -rf ./ninja-demo-app/target/app
+mkdir -p ./ninja-demo-app/target/app
+cd ./ninja-demo-app/target/app
 
-cp ../demo-$1.zip .
-jar -xf ./demo-$1.zip
+cp ../ninja-demo-app-$1.gbl.zip .
+jar -xf ./ninja-demo-app-$1.gbl.zip
 chmod ug+x ./deploy.sh
 ./deploy.sh -nc -env $2

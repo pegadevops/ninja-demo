@@ -24,7 +24,7 @@ pipeline {
         stage('QA') {
             steps {
                 input 'Proceed to QA with this build?'
-                sh './src/main/scripts/deploy-qa.sh'
+                sh 'mvn exec:exec@deploy-demo -N -P env-qa'
             }
         }
         stage('Release') {
