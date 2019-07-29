@@ -34,7 +34,7 @@
         <ninja.build.patch.version>0</ninja.build.patch.version>
 
         <publish.repository.id>demo-releases</publish.repository.id>
-        <publish.repository.url>error-demo-releases-repository-url-is-required</publish.repository.url>
+        <publish.repository.url>http://nexus:8081/repository/maven-releases/</publish.repository.url>
     </properties>
 
     <distributionManagement>
@@ -175,7 +175,7 @@
             <id>nightly-build</id>
             <properties>
                 <publish.repository.id>demo-nightly-builds</publish.repository.id>
-                <publish.repository.url>error-demo-nightly-builds-repository-url-is-required</publish.repository.url>
+                <publish.repository.url>http://nexus:8081/repository/maven-snapshots/</publish.repository.url>
             </properties>
         </profile>
         <profile>
