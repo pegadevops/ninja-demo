@@ -21,8 +21,8 @@
         <cd.pega.app.version/>
         <ninja.codebase.application.key>RULE-APPLICATION ${cd.pega.app.name} ${cd.pega.app.version}</ninja.codebase.application.key>
         <sonar.host.url>http://sonar:9000</sonar.host.url>
-        <sonar.login>ninja-pipeline</sonar.login>
-        <sonar.password>pawxa0-torsyf-moZfim</sonar.password>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>admin</sonar.password>
 
         <maven-surefire-plugin.groups>ru.lanit.bpm.common.junit.category.UnitTests, ru.lanit.bpm.common.junit.category.IntegrationTests
         </maven-surefire-plugin.groups>
