@@ -61,9 +61,14 @@
                 <instance inskey="DATA-ADMIN-SYSTEM-SETTINGS AZURE!AZURE/ATLAS/API/KEY"/>
 
                 <!--Applications-->
-                <instance inskey="RULE-APPLICATION ORDERFUL 01.01.02">
+                <instances classname="Rule-Application" inskeyregex="RULE-APPLICATION ORDERFUL \d{2}\.\d{2}\.\d{2}">
+                    <prop reference=".pyDependsOnList(1).pyAppVersion" value="#{pega.version}"/>
                     <prop reference=".pyDependsOnList(2).pyAppVersion" value="#{pega.uikit.version}"/>
-                </instance>
+                </instances>
+
+                <instances classname="Rule-Application" inskeyregex="RULE-APPLICATION ORDERFULDEV \d{2}\.\d{2}\.\d{2}">
+                    <prop reference=".pyDependsOnList(3).pyAppVersion" value="#{pega.version}"/>
+                </instances>
             </pegaarchive>
 
             <pegaactivity chunkid="delete-orders-user" componentid="orders-webapp" classname="@baseclass" activityname="DeleteObject">
